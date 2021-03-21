@@ -5,15 +5,18 @@ chrome.action.onClicked.addListener(tab => {
 
 chrome.commands.onCommand.addListener(command => {
   if (command === "open-tab-in-incognito") {
-    chrome.tabs.query({active: true, currentWindow: true}, tabs => {
-      createIncognitoTab(tabs[0])
+    chrome.tabs.query({highlighted: true, currentWindow: true}, tabs => {
+      createIncognitoTab(tabs)
     })
   }
 })
 
-function createIncognitoTab(tab) {
+function createIncognitoTab(tabs) {
+  const urls = tabs.map(tab => tab.url);
+  console.log(urls)
+
   chrome.windows.create({
-    url: tab.url,
+    url: urls,
     incognito: true,
   })
 }
