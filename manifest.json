@@ -1,0 +1,21 @@
+{
+  "name": "Incognito Please!",
+  "description": "Open current tab in Incognito mode.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open this tab in incognito"
+  },
+  "commands": {
+    "open-tab-in-incognito": {
+      "suggested_key": {
+        "default": "Alt+I"
+      },
+      "description": "Open current tab in incognito"
+    }
+  }
+}
