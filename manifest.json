@@ -19,7 +19,7 @@
   "commands": {
     "open-tab-in-incognito": {
       "suggested_key": {
-        "default": "Alt+I"
+        "default": "Alt+Shift+I"
       },
       "description": "Open current tab in incognito"
     }
