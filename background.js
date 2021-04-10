@@ -1,6 +1,8 @@
 
-chrome.action.onClicked.addListener(tab => {
-  createIncognitoTab(tab)
+chrome.action.onClicked.addListener(() => {
+  chrome.tabs.query({highlighted: true, currentWindow: true}, tabs => {
+      createIncognitoTab(tabs)
+    })
 })
 
 chrome.commands.onCommand.addListener(command => {
@@ -13,7 +15,6 @@ chrome.commands.onCommand.addListener(command => {
 
 function createIncognitoTab(tabs) {
   const urls = tabs.map(tab => tab.url);
-  console.log(urls)
 
   chrome.windows.create({
     url: urls,
